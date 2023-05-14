@@ -19,13 +19,4 @@ export class SubjectsService {
     );
   }
 
-  getByAuthor(authorName: string): Observable<BookResponse> {
-    const limit = 10;
-    return this.apiService.get(
-      `/search/${authorName
-        .toLowerCase()
-        .split(' ')
-        .join('_')}.json?limit=${limit}`
-    );
-  }
 }

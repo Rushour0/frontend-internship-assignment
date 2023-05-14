@@ -6,9 +6,13 @@
   tw-items-center
   tw-rounded-4-px
   tw-p-12-px
-  tw-m-24-px
-  tw-shadow-lg;
+  tw-shadow-md;
   background: linear-gradient(146deg, #e1eeff 19.67%, #ffe4fb 127.56%);
+}
+
+.body {
+  @apply
+  tw-m-24-px;
 }
 
 .search-button {
@@ -19,8 +23,7 @@
   tw-rounded-8-px
   tw-flex
   tw-justify-center
-  tw-h-60-px
-  tw-w-200-px;
+  tw-h-60-px;
 }
 
 .trending-subjects {
@@ -30,16 +33,4 @@
   tw-rounded-4-px
   tw-shadow-lg;
   background: linear-gradient(146deg, #e1eeff 19.67%, #ffe4fb 127.56%);
-}
-
-.button-container {
-  @apply
-  tw-rounded-8-px;
-  background: transparent;
-  background-color: transparent;
-  border-color: transparent;
-}
-.button-container:hover {
-  background: pink;
-  scale: 1.1;
 }

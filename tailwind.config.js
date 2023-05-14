@@ -28,6 +28,7 @@ module.exports = {
       },
       borderRadius: { 
         '4-px': '4px',
+        '8-px': '8px',
       },
       margin: {
         '16-px': '16px',

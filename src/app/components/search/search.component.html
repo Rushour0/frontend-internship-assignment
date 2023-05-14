@@ -1,0 +1,20 @@
+<div class="body">
+
+  <div class="header">
+    <div class="tw-text-24-px tw-font-600">Meow</div>
+    <div class="w-96 search-button" width="20">
+      <mat-icon class="tw-mt-16-px" aria-label="Search Icon">search</mat-icon>
+      <input [formControl]="bookSearch" name="searchKey" type="text" placeholder="Search Books"
+        class="tw-border-0 tw-bg-inherit">
+
+    </div>
+
+  </div>
+
+
+  <div class="relative tw-overflow-x-auto tw-pt-8">
+    <front-end-internship-assignment-search-table-view
+      [allDocs]="allDocs"></front-end-internship-assignment-search-table-view>
+  </div>
+
+</div>
