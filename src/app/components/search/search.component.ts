@@ -47,7 +47,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.this.route.paramMap.subscribe((params: ParamMap) => {
+    this.route.paramMap.subscribe((params: ParamMap) => {
       this.query = params.get('query') || '';
       this.isLoading = true;
       this.getQuery();
