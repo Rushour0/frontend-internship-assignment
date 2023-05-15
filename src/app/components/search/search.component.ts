@@ -34,15 +34,29 @@ export class SearchComponent implements OnInit {
 
   limit: number = 10;
   offset: number = 0;
+  num_found: number = 0;
 
   getQuery() {
     this.searchService
       .getQuery(this.query, this.limit, this.offset)
       .subscribe((data) => {
+        this.num_found = data?.num_found || 0;
         this.allDocs = data?.docs;
         // this.subjectsArray = data;
+        console.log(data);
         this.isLoading = false;
-        console.log(this.allDocs);
+      });
+  }
+
+  getByAuthor() {
+    this.searchService
+      .getByAuthor(this.query, this.limit, this.offset)
+      .subscribe((data) => {
+        this.num_found = data?.num_found || 0;
+        this.allDocs = data?.docs;
+        // this.subjectsArray = data;
+        console.log(data);
+        this.isLoading = false;
       });
   }
 
@@ -50,6 +64,9 @@ export class SearchComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.query = params.get('query') || '';
       this.isLoading = true;
+      if (this.query.startsWith('?author')) {
+        this.getByAuthor();
+      }
       this.getQuery();
     });
   }

@@ -1,20 +1,17 @@
 <div class="body">
+  <front-end-internship-assignment-navbar>
 
-  <div class="header">
-    <div class="tw-text-24-px tw-font-600">Meow</div>
-    <div class="w-96 search-button" width="20">
-      <mat-icon class="tw-mt-16-px" aria-label="Search Icon">search</mat-icon>
-      <input [formControl]="bookSearch" name="searchKey" type="text" placeholder="Search Books"
-        class="tw-border-0 tw-bg-inherit">
-
-    </div>
-
-  </div>
+  </front-end-internship-assignment-navbar>
+  <ng-template *ngIf="isLoading; else main">
+    <mat-spinner></mat-spinner>
+  </ng-template>
+  <ng-template #main>
 
 
-  <div class="relative tw-overflow-x-auto tw-pt-8">
-    <front-end-internship-assignment-search-table-view
-      [allDocs]="allDocs"></front-end-internship-assignment-search-table-view>
-  </div>
+
+    <front-end-internship-assignment-search-table-view [allDocs]="allDocs"
+      [loading]="isLoading"></front-end-internship-assignment-search-table-view>
+    <front-end-internship-assignment-paginator [num_found]="num_found"></front-end-internship-assignment-paginator>
+  </ng-template>
 
 </div>

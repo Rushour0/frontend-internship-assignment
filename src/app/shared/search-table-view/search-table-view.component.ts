@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+export class PaginatorConfigurableExample {}
+
 import { Doc } from 'src/app/core/models/search-response.model';
 
 @Component({
@@ -10,4 +12,5 @@ import { Doc } from 'src/app/core/models/search-response.model';
 export class SearchTableViewComponent {
   @Input() allDocs: Doc[] = [];
   @Input() query: string = '';
+  @Input() loading: boolean = true;
 }

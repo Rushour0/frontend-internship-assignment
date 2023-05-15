@@ -8,6 +8,11 @@ a {
   display:block;
   text-decoration: none;
 }
+
+.icon-small {
+  transform: scale(0.5);
+}
+
 table a:visited {
   color: #000000;
   font-weight: 500;

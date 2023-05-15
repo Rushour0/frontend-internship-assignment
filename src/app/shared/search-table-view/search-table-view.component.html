@@ -1,50 +1,65 @@
-<table class="tw-w-full tw-text-sm tw-text-left tw-text-gray-500 tw-dark:tw-text-gray-400">
-    <thead
-        class="tw-text-xs  tw-rounded  tw-text-gray-700 tw-uppercase tw-bg-gray-100 tw-dark:tw-bg-gray-700 dark:tw-text-gray-400">
-        <tr>
-            <th scope="col" class="tw-px-4 tw-py-3  tw-rounded-8-px">
-                Sr. No.
-            </th>
-            <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
-                Book Title
-            </th>
-            <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
-                Author Name
-            </th>
-            <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
-                Recent Revision
-            </th>
-            <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
-                Price
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="tw-bg-white tw-border-b tw-dark:tw-bg-gray-800 tw-dark:tw-border-gray-700"
-            *ngFor="let book of allDocs; let i = index" [attr.data-index]="i">
-            <th scope="row"
-                class="table-button-no-hover tw-rounded-8-px hover: tw-text-white tw-text-blue-700 tw-px-6 tw-py-4 tw-btn tw-btn-blue tw-font-medium tw-text-gray-900 tw-whitespace-nowrap tw-dark:tw-text-white">
-                {{i + 1}}
+<ng-template *ngIf="loading; else mainTable">
+    <div class="tw-text-center tw-text-2xl tw-font-medium tw-text-gray-900 tw-mt-24-px">
+        <h1>
 
-            </th>
-            <th scope="row"
-                class="table-button  tw-rounded-8-px hover: tw-text-white tw-text-blue-700 tw-px-6 tw-py-4 tw-btn tw-btn-blue tw-font-medium tw-text-gray-900 tw-whitespace-nowrap tw-dark:tw-text-white">
-                <a class="tw-no-underline tw-text-black" href="https://openlibrary.org{{ book.key }}">
+            No Data Found
+        </h1>
+    </div>
+</ng-template>
+<ng-template #mainTable>
 
+    <table class="tw-w-full tw-mt-24-px tw-text-sm tw-text-left tw-text-gray-500 tw-dark:tw-text-gray-400">
+        <thead
+            class="tw-text-xs  tw-rounded  tw-text-gray-700 tw-uppercase tw-bg-gray-100 tw-dark:tw-bg-gray-700 dark:tw-text-gray-400">
+            <tr>
+                <th scope="col" class="tw-px-4 tw-py-3  tw-rounded-8-px">
+                    Sr. No.
+                </th>
+                <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
+                    Book Title
+                </th>
+                <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
+                    Author Name
+                </th>
+                <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
+                    Recent Revision
+                </th>
+                <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
+                    Open Library Link
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tw-bg-white tw-border-b tw-dark:tw-bg-gray-800 tw-dark:tw-border-gray-700"
+                *ngFor="let book of allDocs; let i = index" [attr.data-index]="i">
+                <th scope="row"
+                    class="table-button-no-hover tw-rounded-8-px hover: tw-text-white tw-text-blue-700 tw-px-6 tw-py-4 tw-btn tw-btn-blue tw-font-medium tw-text-gray-900 tw-whitespace-nowrap tw-dark:tw-text-white">
+                    {{i + 1}}
+
+                </th>
+                <th scope="row"
+                    class="table-button-no-hover  tw-rounded-8-px hover: tw-text-white tw-text-blue-700 tw-px-6 tw-py-4 tw-btn tw-btn-blue tw-font-medium tw-text-gray-900 tw-whitespace-nowrap tw-dark:tw-text-white">
                     {{book.title}}
-                </a>
-            </th>
-            <td
-                class="tw-px-6 tw-py-4 table-button-no-hover  tw-rounded-8-px tw-text-sm tw-dark:tw-text-gray-400 tw-dark:tw-text-gray-400">
-                {{book.author_name}}
-            </td>
-            <td
-                class="tw-px-6 tw-py-4  table-button-no-hover tw-rounded-8-px tw-text-sm tw-dark:tw-text-gray-400 tw-dark:tw-text-gray-400">
-                {{(book.publish_year !== undefined && book.publish_year.length > 0 )?
-                book.publish_year[book.publish_year.length - 1] : 'N/A' }}
-            </td>
 
-        </tr>
-    </tbody>
+                </th>
+                <td
+                    class="tw-px-6 tw-py-4 table-button-no-hover  tw-rounded-8-px tw-text-sm tw-dark:tw-text-gray-400 tw-dark:tw-text-gray-400">
+                    {{book.author_name}}
+                </td>
+                <td
+                    class="tw-px-6 tw-py-4  table-button-no-hover tw-rounded-8-px tw-text-sm tw-dark:tw-text-gray-400 tw-dark:tw-text-gray-400">
+                    {{(book.publish_year !== undefined && book.publish_year.length > 0 )?
+                    book.publish_year[book.publish_year.length - 1] : 'N/A' }}
+                </td>
 
-</table>
+                <td
+                    class="tw-px-6 tw-py-4  table-button tw-rounded-8-px tw-text-sm tw-dark:tw-text-gray-400 tw-dark:tw-text-gray-400">
+                    <a class="tw-no-underline tw-text-black" href="https://openlibrary.org{{ book.key }}">
+
+                        {{book.title}} <mat-icon class="icon-small">open_in_new</mat-icon>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
