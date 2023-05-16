@@ -43,3 +43,9 @@
   background: pink;
   scale: 1.1;
 }
+
+.body {
+  @apply
+  tw-m-24-px;
+  
+}

@@ -13,16 +13,15 @@ export class PaginatorComponent {
   constructor(private router: Router) {}
 
   @Input() query: string = '';
-
   @Input() limit: number = 10;
   @Input() offset: number = 0;
+  @Input() pageIndex: number = 0;
 
   length = 50;
   @Input() set num_found(value: number) {
     this.length = value;
   }
   pageSize = 10;
-  pageIndex = 0;
   pageSizeOptions = [10, 20, 50, 100];
 
   hidePageSize = false;
@@ -32,12 +31,25 @@ export class PaginatorComponent {
 
   pageEvent: PageEvent = new PageEvent();
 
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
-    this.router.navigateByUrl('/search/' + this.query + '/' + this.pageIndex);
+  onPreviousPage() {
+    console.log(this.pageIndex);
+    if (this.pageIndex > 1) {
+      this.router.navigate([
+        '/search/',
+        this.query,
+        { limit: 10, offset: this.pageSize * (this.pageIndex - 2) },
+      ]);
+    }
+  }
+
+  onNextPage() {
+    if (this.pageIndex < this.length / this.pageSize) {
+      this.router.navigate([
+        '/search/',
+        this.query,
+        { limit: 10, offset: this.pageSize * this.pageIndex },
+      ]);
+    }
   }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {

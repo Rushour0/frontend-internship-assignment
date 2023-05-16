@@ -13,4 +13,5 @@ export class SearchTableViewComponent {
   @Input() allDocs: Doc[] = [];
   @Input() query: string = '';
   @Input() loading: boolean = true;
+  @Input() offset: number = 0;
 }

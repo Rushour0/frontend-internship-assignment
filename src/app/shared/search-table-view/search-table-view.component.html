@@ -1,65 +1,74 @@
-<ng-template *ngIf="loading; else mainTable">
-    <div class="tw-text-center tw-text-2xl tw-font-medium tw-text-gray-900 tw-mt-24-px">
-        <h1>
+<table class="tw-w-full tw-mt-24-px tw-text-sm tw-text-left tw-text-gray-500 dark:tw-text-gray-400">
+    <thead
+        class="tw-text-xs  tw-rounded  tw-text-white tw-uppercase tw-bg-gray-100 dark:tw-bg-gray-700 dark:tw-text-gray-400">
+        <tr>
+            <th scope="col" class="tw-px-4 tw-py-3 tw-w-20 tw-rounded-tl-8-px">
+                Sr. No.
+            </th>
+            <th scope="col" class="tw-px-6 tw-py-3 ">
+                Book Title
+            </th>
+            <th scope="col" class="tw-px-6 tw-py-3  tw-w-72">
+                Author Name
+            </th>
+            <th scope="col" class="tw-px-6 tw-py-3   tw-w-36">
+                Recent Revision
+            </th>
+            <th scope="col" class="tw-px-6 tw-py-3  tw-w-36 tw-rounded-tr-8-px">
+                Open Library Link
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="tw-bg-white dark:tw-bg-gray-800 dark:tw-border-gray-700" *ngFor="let book of allDocs; let i = index"
+            [attr.data-index]="i">
+            <ng-container *ngIf="i+1 === allDocs.length; else normalFirst">
 
-            No Data Found
-        </h1>
-    </div>
-</ng-template>
-<ng-template #mainTable>
+                <td scope="row" class="table-cell tw-rounded-bl-8-px tw-px-6 tw-py-4">
+                    {{i +offset + 1}}
 
-    <table class="tw-w-full tw-mt-24-px tw-text-sm tw-text-left tw-text-gray-500 tw-dark:tw-text-gray-400">
-        <thead
-            class="tw-text-xs  tw-rounded  tw-text-gray-700 tw-uppercase tw-bg-gray-100 tw-dark:tw-bg-gray-700 dark:tw-text-gray-400">
-            <tr>
-                <th scope="col" class="tw-px-4 tw-py-3  tw-rounded-8-px">
-                    Sr. No.
-                </th>
-                <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
-                    Book Title
-                </th>
-                <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
-                    Author Name
-                </th>
-                <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
-                    Recent Revision
-                </th>
-                <th scope="col" class="tw-px-6 tw-py-3  tw-rounded-8-px">
-                    Open Library Link
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="tw-bg-white tw-border-b tw-dark:tw-bg-gray-800 tw-dark:tw-border-gray-700"
-                *ngFor="let book of allDocs; let i = index" [attr.data-index]="i">
-                <th scope="row"
-                    class="table-button-no-hover tw-rounded-8-px hover: tw-text-white tw-text-blue-700 tw-px-6 tw-py-4 tw-btn tw-btn-blue tw-font-medium tw-text-gray-900 tw-whitespace-nowrap tw-dark:tw-text-white">
-                    {{i + 1}}
-
-                </th>
-                <th scope="row"
-                    class="table-button-no-hover  tw-rounded-8-px hover: tw-text-white tw-text-blue-700 tw-px-6 tw-py-4 tw-btn tw-btn-blue tw-font-medium tw-text-gray-900 tw-whitespace-nowrap tw-dark:tw-text-white">
-                    {{book.title}}
-
-                </th>
-                <td
-                    class="tw-px-6 tw-py-4 table-button-no-hover  tw-rounded-8-px tw-text-sm tw-dark:tw-text-gray-400 tw-dark:tw-text-gray-400">
-                    {{book.author_name}}
                 </td>
-                <td
-                    class="tw-px-6 tw-py-4  table-button-no-hover tw-rounded-8-px tw-text-sm tw-dark:tw-text-gray-400 tw-dark:tw-text-gray-400">
-                    {{(book.publish_year !== undefined && book.publish_year.length > 0 )?
-                    book.publish_year[book.publish_year.length - 1] : 'N/A' }}
+            </ng-container>
+            <ng-template #normalFirst>
+
+                <td class="table-cell  tw-px-6 tw-py-4 ">
+                    {{i + offset + 1}}
+
                 </td>
+            </ng-template>
 
-                <td
-                    class="tw-px-6 tw-py-4  table-button tw-rounded-8-px tw-text-sm tw-dark:tw-text-gray-400 tw-dark:tw-text-gray-400">
-                    <a class="tw-no-underline tw-text-black" href="https://openlibrary.org{{ book.key }}">
+            <td class="table-cell tw-px-6 tw-py-4 ">
+                {{book.title}}
 
-                        {{book.title}} <mat-icon class="icon-small">open_in_new</mat-icon>
+            </td>
+            <td class="table-cell tw-px-6 tw-py-4 ">
+                {{book.author_name.join(', ')}}
+            </td>
+            <td class="table-cell tw-px-6 tw-py-4 ">
+                {{(book.publish_year !== undefined && book.publish_year.length > 0 )?
+                book.publish_year[book.publish_year.length - 1] : 'N/A' }}
+            </td>
+            <ng-container *ngIf="i+1 === allDocs.length; else normalLast">
+                <td class="table-button tw-px-6 tw-py-4 tw-rounded-br-8-px">
+                    <a class="tw-no-underline" href="https://openlibrary.org{{ book.key }}">
+
+                        Open <mat-icon class="icon-small">open_in_new</mat-icon>
                     </a>
                 </td>
-            </tr>
-        </tbody>
-    </table>
-</ng-template>
+
+            </ng-container>
+
+
+            <ng-template #normalLast>
+                <td class="tw-px-6 tw-py-4  table-button">
+                    <a class="tw-no-underline" href="https://openlibrary.org{{ book.key }}">
+
+                        Open <mat-icon class="icon-small">open_in_new</mat-icon>
+                    </a>
+                </td>
+
+            </ng-template>
+
+        </tr>
+    </tbody>
+</table>

@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 import { TableViewComponent } from './table-view/table-view.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SearchTableViewComponent } from './search-table-view/search-table-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader/loader.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
     NavbarComponent,
     LoaderComponent,
     PaginatorComponent,
+    SidebarComponent,
+    SearchBarComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +31,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
@@ -39,6 +45,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
     LoaderComponent,
     MatProgressSpinnerModule,
     PaginatorComponent,
+    SearchBarComponent,
+    SidebarComponent,
   ],
 })
 export class SharedModule {}

@@ -8,47 +8,17 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
-  static bookSearch: FormControl;
-  static _child: string;
-
-  @Input() set child(value: string) {
-    console.log(value);
-
-    NavbarComponent._child = value;
-  }
-
-  get child() {
-    return NavbarComponent._child;
-  }
-
+export class NavbarComponent {
+  query: string = '';
   constructor(private router: Router) {
-    NavbarComponent.bookSearch = new FormControl('');
+    try {
+      this.query = this.router.url.split('/')[2].split(';')[0];
+    } catch (e) {
+      this.query = '';
+    }
   }
 
-  get bookSearch() {
-    return NavbarComponent.bookSearch;
-  }
-
-  set bookSearch(value) {
-    NavbarComponent.bookSearch = value;
-  }
-
-  trendingSubjects: Array<any> = [
-    { name: 'JavaScript' },
-    { name: 'CSS' },
-    { name: 'HTML' },
-    { name: 'Harry Potter' },
-    { name: 'Crypto' },
-  ];
-
-  onSearch() {
-    this.router.navigateByUrl('/search/' + NavbarComponent.bookSearch.value);
-  }
-
-  ngOnInit(): void {
-    NavbarComponent.bookSearch.valueChanges
-      .pipe(debounceTime(300))
-      .subscribe((value: string) => {});
+  onSearch(value: string) {
+    this.router.navigate(['/search/', value, { limit: 10, offset: 0 }]);
   }
 }

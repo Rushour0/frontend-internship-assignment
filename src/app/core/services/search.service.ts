@@ -8,6 +8,9 @@ import { SearchResponse } from '../models/search-response.model';
 })
 export class SearchService {
   constructor(private apiService: ApiService) {}
+  getDocsByQuery(query: string): Observable<SearchResponse> {
+    return this.apiService.get(`/search.json${query}`);
+  }
 
   getQuery(
     query: string,

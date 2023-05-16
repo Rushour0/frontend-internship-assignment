@@ -1,12 +1,10 @@
 <div>
 
   <div class="header">
-    <div class="tw-text-24-px tw-font-600">Open Books Library</div>
-    <div class="search-button">
-      <mat-icon class="tw-mt-16-px" aria-label="Search Icon">search</mat-icon>
-      <input [formControl]="bookSearch" name="searchKey" type="text" placeholder="Search Books"
-        (keydown.enter)="onSearch()" class="tw-border-0 tw-bg-inherit">
-    </div>
+    <div class="tw-z-10 tw-flex tw-text-24-px tw-font-600">Open Books Library</div>
+    <front-end-internship-assignment-search-bar [query]="query" class="tw-z-0 tw-flex tw-flex-1"
+      (querySubmit)="onSearch($event)"></front-end-internship-assignment-search-bar>
+
   </div>
 
 
