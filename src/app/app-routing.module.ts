@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'search/:query',
     component: SearchComponent,
     title: 'Search Results',
-    data: { limit: 10, offset: 0 },
+    data: { limit: 10, offset: 0, filter: 'Open Search' },
   },
 ];
 

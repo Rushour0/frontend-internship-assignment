@@ -55,7 +55,8 @@ table th {
   dark:tw-bg-tertiary-light 
   dark:tw-text-dark
   
-  hover:tw-bg-tertiary;
+  hover:tw-bg-tertiary
+  dark:hover:tw-bg-tertiary-dark;
 
   overflow-wrap: break-word;
 }

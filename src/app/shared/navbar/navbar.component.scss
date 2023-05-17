@@ -4,7 +4,7 @@
   tw-justify-between
   tw-items-start
   tw-rounded-8-px
-  tw-p-12-px
+  tw-p-4
   tw-text-white
   tw-drop-shadow-lg
 
@@ -13,10 +13,18 @@
 
 .header-title {
   @apply tw-flex
-  
+  tw-h-12
   tw-text-24-px
   tw-drop-shadow-lg
   tw-font-600;
+}
+
+.header-subtitle {
+  @apply tw-flex
+  tw-mt-2
+  tw-italic
+  tw-text-16-px
+  tw-drop-shadow-lg;
 }
 
 .filter-button {
@@ -27,18 +35,35 @@
   tw-h-12
   tw-rounded-8-px 
   tw-bg-white 
-  tw-pl-2
-  tw-drop-shadow-lg
 
-  tw-mr-2
-  
+  tw-drop-shadow-lg
+    
   dark:tw-bg-dark-light
   dark:hover:tw-bg-dark
 
   tw-bg-light-light
   hover:tw-bg-light
 
-  tw-text-yellow-400
+  tw-text-black
+  dark:tw-text-light-dark;
+}
+
+.filter-button-selected {
+  @apply tw-bg-transparent 
+  tw-cursor-pointer
+  
+  tw-border-none 
+  tw-h-12
+  tw-rounded-8-px 
+  tw-bg-white 
+
+  tw-drop-shadow-lg
+    
+  dark:tw-bg-dark
+
+  hover:tw-bg-light
+
+  tw-text-black
   dark:tw-text-light-dark;
 }
 

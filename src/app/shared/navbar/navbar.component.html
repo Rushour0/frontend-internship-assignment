@@ -1,8 +1,14 @@
 <div class="header">
-  <div class="header-title">Open Books Library</div>
+  <div>
+    <a href="/">
+
+      <img src="assets/logo.svg" alt="logo" class="header-title" />
+    </a>
+    <div class="header-subtitle">Search for books</div>
+  </div>
 
 
-  <div class="tw-flex tw-flex-row tw-items-start">
+  <div class="tw-flex tw-flex-row tw-items-start tw-bg-primary tw-rounded-8-px tw-p-2 tw-drop-shadow-xl">
 
 
     <div>
@@ -13,9 +19,10 @@
         <div>
           <h1>Search By</h1>
 
-          <button class="filter-button">Author</button>
-          <button class="filter-button">Title</button>
-          <button class="filter-button">Open Search</button>
+          <button id="Author" class="filter-button tw-mr-2" (click)="selectFilter('Author')">Author</button>
+          <button id="Title" class="filter-button tw-mr-2" (click)="selectFilter('Title')">Title</button>
+          <button id="Open Search" class="filter-button tw-mr-2" (click)="selectFilter('Open Search')">Open
+            Search</button>
 
         </div>
       </div>

@@ -12,8 +12,8 @@ import { SearchService } from 'src/app/core/services/search.service';
 })
 export class SearchComponent implements OnInit {
   bookSearch: FormControl;
+  filter: string = 'Open Search';
   isLoading: boolean = true;
-
   query: string = '';
   queryPhrase: string = '';
 
@@ -42,46 +42,31 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  getQuery() {
-    console.log(this.isLoading);
-    this.searchService
-      .getQuery(this.query, this.limit, this.offset)
-      .pipe(delay(1000))
-      .subscribe((data) => {
-        this.num_found = data?.num_found || 0;
-        this.allDocs = data?.docs;
-        this.pageNumber = Math.ceil(this.offset / this.limit + 1);
-        // this.subjectsArray = data;
-      });
-    this.isLoading = false;
-    console.log(this.isLoading);
-  }
-
-  getByAuthor() {
-    this.searchService
-      .getByAuthor(this.query, this.limit, this.offset)
-      .subscribe((data) => {
-        this.num_found = data?.num_found || 0;
-        this.pageNumber = Math.ceil(this.offset / this.limit + 1);
-        this.allDocs = data?.docs;
-        // this.subjectsArray = data;
-        console.log(data);
-        this.isLoading = false;
-      });
-  }
-
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.query = params.get('query') || '';
       this.queryPhrase = this.query;
+
       this.limit = Number.parseInt(params.get('limit') || '10');
       this.offset = Number.parseInt(params.get('offset') || '0');
+      this.filter = params.get('filter') || 'Open Search';
 
-      this.query = `?q=${this.query.trim()}&limit=${this.limit}&offset=${
-        this.offset
-      }`;
+      if (this.filter === 'Open Search') {
+        this.query = `?q=${this.query.trim()}&limit=${this.limit}&offset=${
+          this.offset
+        }`;
+      }
+      if (this.filter === 'Author') {
+        this.query = `?author=${this.query.trim()}&limit=${this.limit}&offset=${
+          this.offset
+        }`;
+      }
+      if (this.filter === 'Title') {
+        this.query = `?title=${this.query.trim()}&limit=${this.limit}&offset=${
+          this.offset
+        }`;
+      }
 
-      console.log(this.query);
       this.isLoading = true;
 
       this.getDocsByQuery();

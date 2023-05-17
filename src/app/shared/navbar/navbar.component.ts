@@ -12,12 +12,18 @@ import { ThemeService } from 'src/app/core/services/theme.service';
 export class NavbarComponent implements OnInit {
   query: string = '';
   isDark: boolean = false;
+  filters: string[] = ['Open Search', 'Author', 'Title'];
+  filter: string = 'Open Search';
   filtersVisible: boolean = false;
 
   constructor(private router: Router, private themeService: ThemeService) {}
 
   onSearch(value: string) {
-    this.router.navigate(['/search/', value, { limit: 10, offset: 0 }]);
+    this.router.navigate([
+      '/search/',
+      value,
+      { limit: 10, offset: 0, filter: this.filter },
+    ]);
   }
 
   public toggleTheme(): void {
@@ -26,6 +32,32 @@ export class NavbarComponent implements OnInit {
 
   toggleFilter() {
     this.filtersVisible = !this.filtersVisible;
+  }
+
+  getFilterButtons() {
+    return [
+      document.getElementById('Open Search'),
+      document.getElementById('Author'),
+      document.getElementById('Title'),
+    ];
+  }
+
+  selectFilter(filter: string) {
+    this.filter = filter;
+    this.getFilterButtons().forEach((element) => {
+      element?.classList.remove('filter-button-selected');
+    });
+    if (filter === 'Open Search') {
+      document
+        .getElementById('Open Search')
+        ?.classList.add('filter-button-selected');
+    } else if (filter === 'Author') {
+      document
+        .getElementById('Author')
+        ?.classList.add('filter-button-selected');
+    } else if (filter === 'Title') {
+      document.getElementById('Title')?.classList.add('filter-button-selected');
+    }
   }
 
   ngOnInit(): void {
@@ -45,6 +77,7 @@ export class NavbarComponent implements OnInit {
         } catch (e) {
           this.query = '';
         }
+        this.query = decodeURIComponent(this.query);
       });
   }
 }
