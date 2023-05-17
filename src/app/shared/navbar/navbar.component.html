@@ -1,12 +1,32 @@
-<div>
+<div class="header">
+  <div class="header-title">Open Books Library</div>
 
-  <div class="header">
-    <div class="header-title">Open Books Library</div>
-    <front-end-internship-assignment-search-bar [query]="query" class="tw-z-0 tw-flex tw-flex-1"
-      (querySubmit)="onSearch($event)"></front-end-internship-assignment-search-bar>
+
+  <div class="tw-flex tw-flex-row tw-items-start">
+
+
+    <div>
+
+      <front-end-internship-assignment-search-bar [query]="query"
+        (querySubmit)="onSearch($event)"></front-end-internship-assignment-search-bar>
+      <div id="filters" class="tw-column-1 " [hidden]="!filtersVisible">
+        <div>
+          <h1>Search By</h1>
+
+          <button class="filter-button">Author</button>
+          <button class="filter-button">Title</button>
+          <button class="filter-button">Open Search</button>
+
+        </div>
+      </div>
+    </div>
+    <button class="filter-button tw-ml-2" (click)="toggleFilter()">Filter</button>
 
   </div>
 
 
+  <button class="toggle-button" (click)="toggleTheme()"><mat-icon>
+      {{ !isDark ? 'light_mode' : 'dark_mode' }}
+    </mat-icon> </button>
 
 </div>

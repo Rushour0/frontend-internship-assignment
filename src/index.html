@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -8,10 +8,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <script>
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      // then if we have access to the document and the element
+      // we add the dark class to the html element and
+      // store the dark value in the localStorage
+      if (document && document.documentElement) {
+        document.documentElement.classList.add('tw-dark');
+        localStorage.setItem('theme', 'dark');
+      }
     } else {
-      document.documentElement.classList.remove('dark')
+      // else if we have access to the document and the element
+      // we remove the dark class to the html element and 
+      // store the value light in the localStorage
+      if (document && document.documentElement) {
+        document.documentElement.classList.remove('tw-dark');
+        localStorage.setItem('theme', 'light');
+      }
     }
   </script>
 </head>

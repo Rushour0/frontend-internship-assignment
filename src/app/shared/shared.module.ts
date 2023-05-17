@@ -30,6 +30,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     MatIconModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,

@@ -2,15 +2,63 @@
   @apply tw-flex
   tw-bg-primary-dark
   tw-justify-between
-  tw-items-center
+  tw-items-start
   tw-rounded-8-px
   tw-p-12-px
   tw-text-white
-  tw-shadow-lg
+  tw-drop-shadow-lg
 
   dark:tw-bg-primary-light;
 }
 
 .header-title {
-  @apply tw-flex tw-text-24-px tw-font-600;
+  @apply tw-flex
+  
+  tw-text-24-px
+  tw-drop-shadow-lg
+  tw-font-600;
+}
+
+.filter-button {
+  @apply tw-bg-transparent 
+  tw-cursor-pointer
+  
+  tw-border-none 
+  tw-h-12
+  tw-rounded-8-px 
+  tw-bg-white 
+  tw-pl-2
+  tw-drop-shadow-lg
+
+  tw-mr-2
+  
+  dark:tw-bg-dark-light
+  dark:hover:tw-bg-dark
+
+  tw-bg-light-light
+  hover:tw-bg-light
+
+  tw-text-yellow-400
+  dark:tw-text-light-dark;
+}
+
+.toggle-button {
+  @apply tw-bg-transparent 
+  tw-cursor-pointer
+  
+  tw-border-none 
+  tw-rounded-8-px 
+  tw-bg-white 
+  
+  tw-p-2
+  tw-drop-shadow-lg
+  
+  dark:tw-bg-dark-light
+  dark:hover:tw-bg-dark-dark
+
+  tw-bg-light
+  hover:tw-bg-light-dark
+
+  tw-text-yellow-400
+  dark:tw-text-light-dark;
 }

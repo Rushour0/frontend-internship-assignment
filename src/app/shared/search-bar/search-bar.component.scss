@@ -4,11 +4,12 @@
 
 .search-bar-input {
   @apply tw-border-2
-  tw-border-gray-300
+  tw-border-none
   tw-bg-white
   tw-h-12
   tw-px-5
   tw-pr-16
+  tw-drop-shadow-lg
   tw-rounded-lg;
 }
 
@@ -18,16 +19,16 @@
   tw-cursor-pointer
   tw-absolute
   tw-right-1
-  tw-top-3
+  tw-top-1
   tw-w-16
   tw-rounded-lg
-  tw-h-10;
+  tw-h-10
+  
+  tw-bg-secondary-dark
+  hover:tw-bg-secondary-light
+  
+  dark:tw-bg-secondary-light
+  dark:hover:tw-bg-secondary-dark
+  dark:tw-text-primary-dark;
   // tw-mr-2;
-  background-color: #d2e9e9;
-}
-
-.search-bar-button:hover {
-  @apply tw-bg-gray-800
-  tw-text-white;
-  background-color: #c4dfdf;
 }
