@@ -16,6 +16,7 @@ export class PaginatorComponent {
   @Input() limit: number = 10;
   @Input() offset: number = 0;
   @Input() pageIndex: number = 0;
+  @Input() filter: string = 'Open Search';
 
   length = 50;
   @Input() set num_found(value: number) {
@@ -37,7 +38,12 @@ export class PaginatorComponent {
       this.router.navigate([
         '/search/',
         this.query,
-        { limit: 10, offset: this.pageSize * (this.pageIndex - 2) },
+
+        {
+          limit: 10,
+          offset: this.pageSize * (this.pageIndex - 2),
+          filter: this.filter,
+        },
       ]);
     }
   }
@@ -47,7 +53,11 @@ export class PaginatorComponent {
       this.router.navigate([
         '/search/',
         this.query,
-        { limit: 10, offset: this.pageSize * this.pageIndex },
+        {
+          limit: 10,
+          offset: this.pageSize * this.pageIndex,
+          filter: this.filter,
+        },
       ]);
     }
   }
