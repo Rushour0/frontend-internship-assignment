@@ -42,6 +42,13 @@ export class SidebarComponent implements OnInit {
     { name: 'Crypto' },
   ];
 
+  searchTypes: Array<any> = [
+    { name: 'Title' },
+    { name: 'Author' },
+    { name: 'ISBN' },
+    { name: 'Publisher' },
+  ];
+
   onSearch() {
     this.router.navigateByUrl('/search/' + SidebarComponent.bookSearch.value);
   }

@@ -10,20 +10,22 @@
 *,
 html,
 body {
-  @apply
-  tw-font-activ-grotisk
+  @apply tw-font-activ-grotisk
   tw-text-14-px
   tw-box-border
+  tw-font-sans
+  
+
   tw-antialiased;
 }
 
 html,
 body {
-  @apply tw-h-full tw-w-full
+  @apply tw-bg-light dark:tw-bg-dark tw-h-full tw-w-full;
 }
 
 body {
-  @apply tw-m-0 tw-p-0
+  @apply tw-m-0 tw-p-0;
 }
 
 table {
@@ -32,4 +34,3 @@ table {
     padding-left: 16px;
   }
 }
-

@@ -14,24 +14,48 @@ table {
 table th {
   overflow-wrap: break-word;
 }
+
+.table-header {
+  @apply tw-px-4 tw-py-3
+  tw-shadow-lg
+
+  tw-text-light
+  tw-bg-secondary-dark
+  
+  dark:tw-text-dark
+  dark:tw-bg-secondary-light;
+}
+
 .table-cell {
   @apply tw-border
-  tw-text-white
-  tw-border-blue-500;
-  overflow-wrap: break-all;
+  tw-shadow-lg
+  
+  tw-text-light
+  tw-bg-tertiary-dark
+  
+  tw-border-primary-light
+  
+  dark:tw-text-dark
+  dark:tw-bg-tertiary-light;
+
+  overflow-wrap: break-word;
 }
+
 .table-button {
   @apply tw-font-semibold
   tw-py-2
   tw-px-4
-  tw-border
-  tw-text-white
-  tw-border-blue-500;
-  overflow-wrap: break-word;
-}
+  tw-shadow-lg
+  tw-cursor-pointer
+  tw-border-transparent
+  tw-text-light
+  
 
-.table-button:hover {
-  @apply tw-border-transparent;
-  cursor: pointer;
-  background: linear-gradient(146deg, purple 19.67%, violet 127.56%);
+  tw-bg-tertiary-dark 
+  dark:tw-bg-tertiary-light 
+  dark:tw-text-dark
+  
+  hover:tw-bg-tertiary;
+
+  overflow-wrap: break-word;
 }

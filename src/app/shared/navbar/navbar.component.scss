@@ -1,11 +1,16 @@
 .header {
   @apply tw-flex
-
+  tw-bg-primary-dark
   tw-justify-between
   tw-items-center
   tw-rounded-8-px
   tw-p-12-px
   tw-text-white
-  tw-shadow-lg;
-  background-color: #C4DFDF;
+  tw-shadow-lg
+
+  dark:tw-bg-primary-light;
+}
+
+.header-title {
+  @apply tw-flex tw-text-24-px tw-font-600;
 }

@@ -1,10 +1,27 @@
-
-.trending-subjects {
-  @apply 
-  tw-bg-table-header-bg
+.sidebar {
+  @apply tw-bg-table-header-bg
   tw-p-12-px
   tw-rounded-8-px
+  tw-shadow-lg
   tw-text-white
-  tw-shadow-lg;
-  background: linear-gradient(146deg, purple 19.67%, #ffe4fb 127.56%);
+  tw-bg-primary-dark
+  dark:tw-bg-primary-light;
+}
+
+.options {
+  @apply tw-text-16-px
+  tw-cursor-pointer
+  tw-rounded-lg
+
+  tw-bg-transparent
+  
+  dark:tw-text-gray-100
+  dark:hover:tw-bg-primary-dark
+  dark:hover:tw-text-black
+  
+  
+  tw-text-white
+  hover:tw-text-black
+  hover:tw-bg-primary-light
+  tw-p-12-px;
 }

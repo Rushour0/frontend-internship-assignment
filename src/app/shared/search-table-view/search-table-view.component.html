@@ -1,20 +1,19 @@
 <table class="tw-w-full tw-mt-24-px tw-text-sm tw-text-left tw-text-gray-500 dark:tw-text-gray-400">
-    <thead
-        class="tw-text-xs  tw-rounded  tw-text-white tw-uppercase tw-bg-gray-100 dark:tw-bg-gray-700 dark:tw-text-gray-400">
+    <thead>
         <tr>
-            <th scope="col" class="tw-px-4 tw-py-3 tw-w-20 tw-rounded-tl-8-px">
+            <th scope="col" class="table-header tw-w-20 tw-rounded-tl-8-px">
                 Sr. No.
             </th>
-            <th scope="col" class="tw-px-6 tw-py-3 ">
+            <th scope="col" class="table-header">
                 Book Title
             </th>
-            <th scope="col" class="tw-px-6 tw-py-3  tw-w-72">
+            <th scope="col" class="table-header tw-w-72">
                 Author Name
             </th>
-            <th scope="col" class="tw-px-6 tw-py-3   tw-w-36">
+            <th scope="col" class="table-header tw-w-36">
                 Recent Revision
             </th>
-            <th scope="col" class="tw-px-6 tw-py-3  tw-w-36 tw-rounded-tr-8-px">
+            <th scope="col" class="table-header tw-w-36 tw-rounded-tr-8-px">
                 Open Library Link
             </th>
         </tr>
@@ -38,33 +37,27 @@
             </ng-template>
 
             <td class="table-cell tw-px-6 tw-py-4 ">
-                {{book.title}}
+                {{book.title ? book.title : 'No Title'}}
 
             </td>
             <td class="table-cell tw-px-6 tw-py-4 ">
-                {{book.author_name.join(', ')}}
+                {{book.author_name !== undefined ? book.author_name.join(', ') : 'No Author'}}
             </td>
             <td class="table-cell tw-px-6 tw-py-4 ">
                 {{(book.publish_year !== undefined && book.publish_year.length > 0 )?
                 book.publish_year[book.publish_year.length - 1] : 'N/A' }}
             </td>
             <ng-container *ngIf="i+1 === allDocs.length; else normalLast">
-                <td class="table-button tw-px-6 tw-py-4 tw-rounded-br-8-px">
-                    <a class="tw-no-underline" href="https://openlibrary.org{{ book.key }}">
-
-                        Open <mat-icon class="icon-small">open_in_new</mat-icon>
-                    </a>
+                <td class="table-button tw-rounded-br-8-px" (click)="goto(book.key)">
+                    Open <mat-icon class="icon-small">open_in_new</mat-icon>
                 </td>
 
             </ng-container>
 
 
             <ng-template #normalLast>
-                <td class="tw-px-6 tw-py-4  table-button">
-                    <a class="tw-no-underline" href="https://openlibrary.org{{ book.key }}">
-
-                        Open <mat-icon class="icon-small">open_in_new</mat-icon>
-                    </a>
+                <td class="table-button" (click)="goto(book.key)">
+                    Open <mat-icon class=" icon-small">open_in_new</mat-icon>
                 </td>
 
             </ng-template>

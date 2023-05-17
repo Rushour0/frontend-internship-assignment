@@ -14,4 +14,9 @@ export class SearchTableViewComponent {
   @Input() query: string = '';
   @Input() loading: boolean = true;
   @Input() offset: number = 0;
+
+  goto(location: string) {
+    console.log(location);
+    window.location.href = `https://openlibrary.org${location}`;
+  }
 }
