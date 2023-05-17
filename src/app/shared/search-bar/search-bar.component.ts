@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
+import { Ripple, initTE } from 'tw-elements';
+initTE({ Ripple });
 
 @Component({
   selector: 'front-end-internship-assignment-search-bar',

@@ -1,6 +1,5 @@
 .header {
-  @apply
-  tw-flex
+  @apply tw-flex
 
   tw-justify-between
   tw-items-center
@@ -8,39 +7,5 @@
   tw-p-12-px
   tw-text-white
   tw-shadow-lg;
-  background: linear-gradient(146deg, purple 29.67%, #ffe4fb 127.56%);
-  
-}
-
-.search-button {
-  @apply 
-  tw-border 
-  tw-border-solid 
-  tw-border-dark-border
-  tw-rounded-8-px
-  tw-flex
-  tw-justify-center
-  tw-h-60-px
-  tw-w-200-px;
-}
-
-.trending-subjects {
-  @apply 
-  tw-bg-table-header-bg
-  tw-p-12-px
-  tw-rounded-4-px
-  tw-shadow-lg;
-  background: linear-gradient(146deg, #ffffff 19.67%, #ffe4fb 127.56%);
-}
-
-.button-container {
-  @apply
-  tw-rounded-8-px;
-  background: transparent;
-  background-color: transparent;
-  border-color: transparent;
-}
-.button-container:hover {
-  background: pink;
-  scale: 1.1;
+  background-color: #C4DFDF;
 }
