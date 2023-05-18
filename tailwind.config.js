@@ -30,7 +30,7 @@ const customColors = {
   'light-light': '#ffffff',
   'light-dark': '#c2c2c2',
   'dark': '#212121',
-  'dark-light': '#484848',  
+  'dark-light': '#484848',
   'dark-dark': '#000000',
 }
 
@@ -42,12 +42,13 @@ module.exports = {
   },
   content: [join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'), ...createGlobPatternsForDependencies(__dirname)],
   theme: {
-    fontSize: {
-      '14-px': '14px',
-      '16-px': '16px',
-      '24-px': '24px',
-    },
+
     extend: {
+      fontSize: {
+        '14-px': '14px',
+        '16-px': '16px',
+        '24-px': '24px',
+      },
       textColor: {
         ...customColors
       },
@@ -102,5 +103,5 @@ module.exports = {
       }
     },
   },
-  plugins: [ ],
+  plugins: [],
 }

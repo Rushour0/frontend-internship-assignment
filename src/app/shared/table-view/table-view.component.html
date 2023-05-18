@@ -1,24 +1,45 @@
-<div class="tw-m-24-px">
-  <div class="tw-mb-24-px tw-text-24-px"> Top {{ booksList.length }} book{{ booksList.length > 1 ? "s" : "" }} on {{ subjectName }}</div>
+<div class="tw-mt-24-px">
+  <div class="tw-mb-24-px tw-text-24-px dark:tw-text-white tw-text-black"> Top {{ booksList.length }} book{{
+    booksList.length > 1 ? "s" :
+    "" }} on {{
+    subjectName }}</div>
 
   <ng-container>
-    <table class="table-view">
+    <table class="tw-w-full tw-mt-24-px tw-text-sm tw-text-left tw-text-gray-500 dark:tw-text-gray-400">
       <thead>
-        <tr class="table-row">
-          <th class="header">Title and Sub Title</th>
-          <th class="header">Author</th>
-          <th class="header">First Publish Year</th>
+        <tr>
+          <th class="table-header tw-w-20 tw-rounded-tl-8-px">Title and Sub Title</th>
+          <th class="table-header tw-w-20 ">Author</th>
+          <th class="table-header tw-w-20 tw-rounded-tr-8-px">First Publish Year</th>
         </tr>
       </thead>
-      <tbody class="table-body">
-        <tr *ngFor="let book of booksList" class="row-data">
-          <td>
-            <a class="tw-no-underline" href="https://openlibrary.org{{ book.key }}" target="_blank">{{ book.title }}</a>
-          </td>
-          <td>
+      <tbody>
+        <tr *ngFor="let book of booksList; let i = index" class="row-data">
+          <ng-container *ngIf="(i + 1) === booksList.length; else normalButton">
+            <td class="table-button tw-rounded-bl-8-px">
+              <a class="tw-no-underline tw-text-white" href="https://openlibrary.org{{ book.key }}" target="_blank">{{
+                book.title }}</a>
+            </td>
+
+          </ng-container>
+          <ng-template #normalButton>
+
+            <td class="table-button ">
+              <a class="tw-no-underline tw-text-white" href="https://openlibrary.org{{ book.key }}" target="_blank">{{
+                book.title }}</a>
+            </td>
+          </ng-template>
+          <td class="table-cell">
             {{ book.authors.length > 0 ? book.authors[0].name : "Unknown" }}
           </td>
-          <td>{{ book.first_publish_year }}</td>
+          <ng-container *ngIf="(i + 1) === booksList.length; else normal">
+            <td class="table-cell tw-rounded-br-8-px">{{ book.first_publish_year }}</td>
+
+          </ng-container>
+          <ng-template #normal>
+
+            <td class="table-cell">{{ book.first_publish_year }}</td>
+          </ng-template>
         </tr>
       </tbody>
     </table>

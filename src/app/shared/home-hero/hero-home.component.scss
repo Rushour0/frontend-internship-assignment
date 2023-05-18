@@ -1,0 +1,40 @@
+.title {
+    @apply tw-text-6xl
+    
+    tw-font-bold
+    tw-mb-4
+
+    
+    tw-text-dark-dark
+    dark:tw-text-light-light;
+}
+
+.subtitle {
+    @apply tw-text-3xl
+    
+    tw-font-semibold
+    tw-mb-4
+
+    tw-text-dark-light
+    dark:tw-text-light-dark;
+}
+
+.example-search-button {
+    @apply tw-font-bold
+    tw-py-2
+    tw-px-4
+    tw-border-none
+    tw-rounded
+    
+    tw-text-white
+    dark:tw-text-black
+    
+    tw-bg-secondary-dark
+    dark:tw-bg-secondary-light;
+}
+
+.example-search-button a {
+    @apply tw-no-underline
+    tw-text-white
+    dark:tw-text-black;
+}

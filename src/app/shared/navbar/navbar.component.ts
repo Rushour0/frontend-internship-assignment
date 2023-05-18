@@ -72,12 +72,14 @@ export class NavbarComponent implements OnInit {
     this.router.events
       .pipe(filter((rs): rs is NavigationEnd => rs instanceof NavigationEnd))
       .subscribe((event) => {
-        try {
-          this.query = this.router.url.split('/')[2].split(';')[0];
-        } catch (e) {
-          this.query = '';
+        if (event.url.startsWith('/search')) {
+          try {
+            this.query = this.router.url.split('/')[2].split(';')[0];
+          } catch (e) {
+            this.query = '';
+          }
+          this.query = decodeURIComponent(this.query);
         }
-        this.query = decodeURIComponent(this.query);
       });
   }
 }

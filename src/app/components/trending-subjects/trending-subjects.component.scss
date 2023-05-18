@@ -1,0 +1,21 @@
+.back-button {
+    @apply tw-flex
+    tw-flex-row
+    tw-items-center
+    tw-gap-2
+    tw-cursor-pointer
+    tw-px-4
+    tw-py-2
+    tw-border-none
+    tw-font-semibold
+    tw-rounded-4-px
+    
+    tw-bg-primary-light
+    tw-text-light
+
+    hover:tw-bg-primary
+    dark:hover:tw-bg-primary-light
+
+    dark:tw-text-dark
+    dark:tw-bg-primary-dark;
+}

@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader/loader.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { HeroHomeComponent } from './home-hero/hero-home.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,14 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     PaginatorComponent,
     SidebarComponent,
     SearchBarComponent,
+    HeroHomeComponent,
   ],
   imports: [
     CommonModule,
     MatIconModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    
+
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -46,6 +48,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     LoaderComponent,
     MatProgressSpinnerModule,
     PaginatorComponent,
+    HeroHomeComponent,
     SearchBarComponent,
     SidebarComponent,
   ],

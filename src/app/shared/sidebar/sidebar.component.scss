@@ -1,10 +1,10 @@
 .sidebar {
-  @apply tw-bg-table-header-bg
-  tw-p-12-px
-  tw-rounded-8-px
+  @apply tw-p-12-px
+  tw-rounded-r-8-px
   tw-shadow-lg
   tw-text-white
   tw-bg-primary-dark
+
   dark:tw-bg-primary-light;
 }
 
