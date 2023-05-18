@@ -8,4 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './hero-home.component.html',
   styleUrls: ['./hero-home.component.scss'],
 })
-export class HeroHomeComponent {}
+export class HeroHomeComponent {
+  constructor(private router: Router) {}
+  onSearch(value: string) {
+    this.router.navigate([
+      '/search/',
+      value,
+      { limit: 10, offset: 0, filter: 'Open Search' },
+    ]);
+  }
+}
